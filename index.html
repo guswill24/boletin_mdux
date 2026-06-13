@@ -573,6 +573,15 @@
       transition: transform .4s var(--ease-spring);
     }
 
+    .pillar-icon img {
+      width: 20px;
+      height: 20px;
+      display: block;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: .85;
+    }
+
     .pillar-card:hover .pillar-icon {
       transform: scale(1.18) rotate(-8deg);
     }
@@ -927,6 +936,13 @@
       flex-shrink: 0;
       margin-top: 2px;
       transition: transform .4s var(--ease-spring);
+    }
+
+    .update-ico img {
+      width: 22px;
+      height: 22px;
+      display: block;
+      object-fit: contain;
     }
 
     .update-row:hover .update-ico {
@@ -1698,22 +1714,22 @@
         <p class="pep-text">La brújula que orienta tu formación como diseñador de experiencias de usuario.</p>
         <div class="pillars" role="list" aria-label="Pilares del programa MDUX">
           <div class="pillar-card" role="listitem" tabindex="0">
-            <div class="pillar-icon" aria-hidden="true">🎯</div>
+            <div class="pillar-icon"><img src="src/profile.svg" alt=""></div>
             <div class="pillar-title">Perfil del egresado</div>
             <div class="pillar-desc">UX, accesibilidad, innovación y transformación digital</div>
           </div>
           <div class="pillar-card" role="listitem" tabindex="0">
-            <div class="pillar-icon" aria-hidden="true">📐</div>
+            <div class="pillar-icon"><img src="src/resume.svg" alt=""></div>
             <div class="pillar-title">Componentes curriculares</div>
             <div class="pillar-desc">Estructura y ruta de tu formación completa</div>
           </div>
           <div class="pillar-card" role="listitem" tabindex="0">
-            <div class="pillar-icon" aria-hidden="true">🧪</div>
+            <div class="pillar-icon"><img src="src/strategy.svg" alt=""></div>
             <div class="pillar-title">Estrategias pedagógicas</div>
             <div class="pillar-desc">Aprendizaje activo centrado en el usuario</div>
           </div>
           <div class="pillar-card" role="listitem" tabindex="0">
-            <div class="pillar-icon" aria-hidden="true">✅</div>
+            <div class="pillar-icon"><img src="src/quality_proc.svg" alt="" style="width:26px;height:26px;"></div>
             <div class="pillar-title">Procesos de calidad</div>
             <div class="pillar-desc">Autoevaluación y mejora continua del programa</div>
           </div>
@@ -1798,7 +1814,9 @@
         <ul class="updates-list" aria-label="Actualizaciones del programa">
           <li class="update-row" style="transition-delay:.05s">
             <div class="update-row-inner">
-              <div class="update-ico" style="background:#EDE9FF;" aria-hidden="true">📅</div>
+              <div class="update-ico" style="background:#EDE9FF;">
+                <img src="src/public-facility.svg" alt="Eventos académicos">
+              </div>
               <div>
                 <div class="update-title">Eventos académicos</div>
                 <div class="update-desc">Webinars y seminarios especializados sobre tendencias UX. Participa y construye
@@ -1808,7 +1826,9 @@
           </li>
           <li class="update-row" style="transition-delay:.12s">
             <div class="update-row-inner">
-              <div class="update-ico" style="background:#FDE8EC;" aria-hidden="true">📣</div>
+              <div class="update-ico" style="background:#FDE8EC;">
+                <img src="src/digital-marketing.svg" alt="Convocatorias abiertas">
+              </div>
               <div>
                 <div class="update-title">Convocatorias abiertas</div>
                 <div class="update-desc">Procesos de selección y proyectos especiales donde tu participación activa hace
@@ -1818,7 +1838,9 @@
           </li>
           <li class="update-row" style="transition-delay:.19s">
             <div class="update-row-inner">
-              <div class="update-ico" style="background:#E4F5EC;" aria-hidden="true">🔬</div>
+              <div class="update-ico" style="background:#E4F5EC;">
+                <img src="src/investigation.svg" alt="Investigación y semilleros">
+              </div>
               <div>
                 <div class="update-title">Investigación y semilleros</div>
                 <div class="update-desc">Líneas de investigación activas en diseño centrado en el usuario. El
@@ -1828,7 +1850,9 @@
           </li>
           <li class="update-row update-row--exp" style="transition-delay:.26s">
             <button class="update-row-inner update-toggle" aria-expanded="false" aria-controls="detail-innovacion">
-              <div class="update-ico" style="background:#E0F2FE;" aria-hidden="true">⚡</div>
+              <div class="update-ico" style="background:#E0F2FE;">
+                <img src="src/innovation.svg" alt="Innovación digital">
+              </div>
               <div>
                 <div class="update-title">Innovación digital</div>
                 <div class="update-desc">Lo que está pasando en el mundo del UX — noticias, tendencias y hallazgos que llegan directamente a tu formación.</div>
@@ -1862,7 +1886,9 @@
           </li>
           <li class="update-row" style="transition-delay:.33s">
             <div class="update-row-inner">
-              <div class="update-ico" style="background:#FFF8E1;" aria-hidden="true">✅</div>
+              <div class="update-ico" style="background:#FFF8E1;">
+                <img src="src/quality.svg" alt="Procesos de calidad">
+              </div>
               <div>
                 <div class="update-title">Procesos de calidad</div>
                 <div class="update-desc">Autoevaluación, acreditación y mejora continua. La calidad del programa la
