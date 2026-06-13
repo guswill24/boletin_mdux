@@ -1,0 +1,5 @@
+Google confirma: el diseño emocional ya no es opcional
+Google presentó oficialmente Material 3 Expressive, un nuevo lenguaje visual para Android que llegará con Android 16 y que promete hacer la interfaz más dinámica, intuitiva y "emocional". Medium
+El desarrollo es el resultado de tres años de investigación con más de 18.000 usuarios. La nueva propuesta promueve una estética menos rígida: la consistencia absoluta ya no es un dogma. Pestañas con formas variables, botones que se ajustan a su contenido, tipografías con personalidad propia — todo apunta a interfaces más expresivas y humanas. BloggerWikipedia
+Para los estudiantes de la MDUX, esta noticia no es solo tendencia: es evidencia de que el diseño centrado en la emoción tiene impacto real en los sistemas más usados del planeta.
+🔗 Explora el kit de diseño en Figma: material.io

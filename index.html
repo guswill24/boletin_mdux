@@ -1315,6 +1315,146 @@
     }
 
     /* ════════════════════════════════════
+   ACCORDION — Innovación digital
+════════════════════════════════════ */
+    .update-row.update-row--exp {
+      display: block;
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+    }
+
+    .update-row.update-row--exp:last-child {
+      border-bottom: none;
+    }
+
+    .update-toggle {
+      all: unset;
+      box-sizing: border-box;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 0;
+      width: 100%;
+      cursor: pointer;
+      border-radius: var(--shape-sm);
+      transition: transform .35s var(--ease-spring);
+    }
+
+    .update-row--exp:hover .update-toggle {
+      transform: translateX(6px);
+    }
+
+    .update-toggle:focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 4px;
+      border-radius: var(--shape-sm);
+    }
+
+    .update-toggle .update-ico {
+      transition: transform .4s var(--ease-spring);
+    }
+
+    .update-row--exp:hover .update-toggle .update-ico {
+      transform: scale(1.18) rotate(-7deg);
+    }
+
+    .update-chevron {
+      margin-left: auto;
+      flex-shrink: 0;
+      color: var(--faint);
+      align-self: center;
+      transition: transform .4s var(--ease-spring), color .25s;
+    }
+
+    .update-toggle[aria-expanded="true"] .update-chevron {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .update-detail {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows .45s var(--ease-decelerate);
+      overflow: hidden;
+    }
+
+    .update-detail.open {
+      grid-template-rows: 1fr;
+    }
+
+    .update-detail-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .update-detail-body {
+      padding: 0 0 24px 56px;
+      border-top: 1px solid rgba(74, 63, 181, .07);
+      padding-top: 16px;
+      opacity: 0;
+      transform: translateY(8px);
+      transition: opacity .35s var(--ease-decelerate) .05s,
+                  transform .35s var(--ease-decelerate) .05s;
+    }
+
+    .update-detail.open .update-detail-body {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .innov-title {
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    .innov-text {
+      font-size: var(--ts-sm);
+      font-weight: 400;
+      color: var(--mid);
+      line-height: var(--lh-body);
+      margin-bottom: 14px;
+    }
+
+    .innov-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 12px;
+    }
+
+    .innov-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--prim-cont);
+      color: var(--accent);
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      padding: 4px 12px;
+      border-radius: 100px;
+      letter-spacing: .02em;
+    }
+
+    .innov-tag--link {
+      text-decoration: none;
+      transition: background .2s var(--ease-emphasized), transform .3s var(--ease-spring);
+    }
+
+    .innov-tag--link:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .innov-tag--link:focus-visible {
+      outline: 2px solid var(--accent2);
+      outline-offset: 3px;
+    }
+
+    /* ════════════════════════════════════
    M3 RIPPLE
 ════════════════════════════════════ */
     .m3-ripple {
@@ -1687,13 +1827,38 @@
               </div>
             </div>
           </li>
-          <li class="update-row" style="transition-delay:.26s">
-            <div class="update-row-inner">
+          <li class="update-row update-row--exp" style="transition-delay:.26s">
+            <button class="update-row-inner update-toggle" aria-expanded="false" aria-controls="detail-innovacion">
               <div class="update-ico" style="background:#E0F2FE;" aria-hidden="true">⚡</div>
               <div>
                 <div class="update-title">Innovación digital</div>
                 <div class="update-desc">Transformación de entornos virtuales con herramientas que reflejan las
                   tendencias UX actuales.</div>
+              </div>
+              <svg class="update-chevron" width="16" height="16" viewBox="0 0 16 16" fill="none"
+                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"
+                aria-hidden="true">
+                <path d="M4 6l4 4 4-4" />
+              </svg>
+            </button>
+            <div class="update-detail" id="detail-innovacion" role="region"
+              aria-label="Detalle: Innovación digital">
+              <div class="update-detail-inner">
+                <div class="update-detail-body">
+                  <p class="innov-title">Google confirma: el diseño emocional ya no es opcional</p>
+                  <p class="innov-text">Google presentó oficialmente <strong>Material 3 Expressive</strong>, un nuevo lenguaje visual para Android que llegará con Android 16 y que promete hacer la interfaz más dinámica, intuitiva y "emocional".</p>
+                  <p class="innov-text">El desarrollo es el resultado de tres años de investigación con más de 18.000 usuarios. La nueva propuesta promueve una estética menos rígida: la consistencia absoluta ya no es un dogma. Pestañas con formas variables, botones que se ajustan a su contenido, tipografías con personalidad propia — todo apunta a interfaces más expresivas y humanas.</p>
+                  <p class="innov-text">Para los estudiantes de la MDUX, esta noticia no es solo tendencia: es evidencia de que el <strong>diseño centrado en la emoción</strong> tiene impacto real en los sistemas más usados del planeta.</p>
+                  <div class="innov-tags">
+                    <span class="innov-tag">M3 Expressive</span>
+                    <span class="innov-tag">Android 16</span>
+                    <span class="innov-tag">UX emocional</span>
+                    <a href="https://material.io" target="_blank" rel="noopener noreferrer" class="innov-tag innov-tag--link">
+                      <svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+                      Figma kit · material.io
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -1893,6 +2058,17 @@
           if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.style.background = 'rgba(200,194,255,.14)'; c.style.transform = 'translateY(-3px)'; setTimeout(function () { c.style.background = ''; c.style.transform = ''; }, 300); }
         });
       });
+
+      /* Accordion — Innovación digital */
+      var toggleBtn = document.querySelector('.update-toggle');
+      var detail = document.getElementById('detail-innovacion');
+      if (toggleBtn && detail) {
+        toggleBtn.addEventListener('click', function () {
+          var open = toggleBtn.getAttribute('aria-expanded') === 'true';
+          toggleBtn.setAttribute('aria-expanded', String(!open));
+          detail.classList.toggle('open', !open);
+        });
+      }
 
       /* M3 Ripple — Capa 4 · Mover */
       if (!mo) {
