@@ -2047,7 +2047,7 @@
         }
         requestAnimationFrame(step);
       }
-      var so = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { so.unobserve(e.target); setTimeout(function () { count('stat-semestres', 3, '', 900); }, 100); setTimeout(function () { count('stat-creditos', 48, '', 1100); }, 250); setTimeout(function () { count('stat-modalidad', 100, '%', 1300); }, 400); } }); }, { threshold: .3 });
+      var so = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { so.unobserve(e.target); setTimeout(function () { count('stat-semestres', 3, '', 900); }, 100); setTimeout(function () { count('stat-creditos', 36, '', 1100); }, 250); setTimeout(function () { count('stat-modalidad', 100, '%', 1300); }, 400); } }); }, { threshold: .3 });
       var sb = document.querySelector('.stat-row');
       if (sb) so.observe(sb);
 
