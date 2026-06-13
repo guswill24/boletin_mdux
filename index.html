@@ -28,12 +28,13 @@
     /* Escala tipográfica: xs=12 sm=15 base=17 md=22 lg=34 xl=clamp(34,5.5vw,52) */
 
     :root {
-      --ts-xs: 12px;
-      --ts-sm: 15px;
-      --ts-base: 17px;
-      --ts-md: 22px;
-      --ts-lg: 34px;
-      --ts-xl: clamp(34px, 5.5vw, 52px);
+      /* Escala en rem — respeta preferencia de tamaño del navegador (WCAG 1.4.4) */
+      --ts-xs:   0.75rem;
+      --ts-sm:   0.9375rem;
+      --ts-base: 1.0625rem;
+      --ts-md:   1.375rem;
+      --ts-lg:   2.125rem;
+      --ts-xl:   clamp(2.125rem, 5.5vw, 3.25rem);
 
       --lh-display: 1.18;
       --lh-quote: 1.6;
@@ -1331,6 +1332,53 @@
     }
 
     /* ════════════════════════════════════
+   WCAG 1.4.4 — Control de tamaño de texto
+════════════════════════════════════ */
+    .a11y-ctrl {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--ink);
+      border-radius: 100px;
+      padding: 5px 8px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, .35), 0 0 0 1px rgba(255,255,255,.06);
+    }
+
+    .afc-btn {
+      all: unset;
+      box-sizing: border-box;
+      cursor: pointer;
+      color: rgba(255, 255, 255, .55);
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      line-height: 1;
+      border-radius: 100px;
+      padding: 4px 9px;
+      transition: background .18s, color .18s, transform .25s var(--ease-spring);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .afc-btn:hover  { background: rgba(255,255,255,.1); color: #fff; }
+    .afc-btn:active { transform: scale(.92); }
+    .afc-btn:focus-visible { outline: 2px solid var(--glow); outline-offset: 2px; }
+    .afc-btn:disabled { opacity: .25; cursor: not-allowed; pointer-events: none; }
+
+    .afc-sm  { font-size: 11px; }
+    .afc-md  { font-size: 13px; color: rgba(255,255,255,.75); padding: 4px 6px; }
+    .afc-lg  { font-size: 15px; }
+
+    .afc-sep {
+      width: 1px; height: 14px;
+      background: rgba(255,255,255,.12);
+      margin: 0 2px;
+    }
+
+    /* ════════════════════════════════════
    ACCORDION — Innovación digital
 ════════════════════════════════════ */
     .update-row.update-row--exp {
@@ -1508,9 +1556,9 @@
 ════════════════════════════════════ */
     @media (max-width: 520px) {
       :root {
-        --ts-xl: clamp(28px, 7vw, 36px);
-        --ts-md: 18px;
-        --ts-lg: 26px;
+        --ts-xl: clamp(1.75rem, 7vw, 2.25rem);
+        --ts-md: 1.125rem;
+        --ts-lg: 1.625rem;
       }
 
       .hero {
@@ -2035,6 +2083,15 @@
 
   </div>
 
+  <!-- WCAG 1.4.4 — Control de tamaño de texto para baja visión -->
+  <div class="a11y-ctrl" role="toolbar" aria-label="Control de tamaño de texto">
+    <button class="afc-btn afc-sm" id="afc-dec" aria-label="Reducir tamaño de texto">A−</button>
+    <div class="afc-sep" aria-hidden="true"></div>
+    <button class="afc-btn afc-md" id="afc-rst" aria-label="Restablecer tamaño de texto">A</button>
+    <div class="afc-sep" aria-hidden="true"></div>
+    <button class="afc-btn afc-lg" id="afc-inc" aria-label="Aumentar tamaño de texto">A+</button>
+  </div>
+
   <script>
     (function () {
       var mo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -2110,6 +2167,38 @@
         document.querySelectorAll('.btn-primary,.btn-secondary,.link-btn,.cta-btn').forEach(attachRipple);
       }
     })();
+
+    /* WCAG 1.4.4 — Control de tamaño de texto */
+    (function () {
+      var STEPS = ['90%', '100%', '115%', '130%', '150%'];
+      var DEFAULT_IDX = 1;
+      var stored = parseInt(localStorage.getItem('mdux-fs-idx'));
+      var idx = (stored >= 0 && stored < STEPS.length) ? stored : DEFAULT_IDX;
+      var html = document.documentElement;
+      var btnDec = document.getElementById('afc-dec');
+      var btnRst = document.getElementById('afc-rst');
+      var btnInc = document.getElementById('afc-inc');
+
+      function apply() {
+        if (idx === DEFAULT_IDX) {
+          html.style.removeProperty('font-size');
+        } else {
+          html.style.fontSize = STEPS[idx];
+        }
+        localStorage.setItem('mdux-fs-idx', idx);
+        btnDec.disabled = (idx === 0);
+        btnInc.disabled = (idx === STEPS.length - 1);
+        btnRst.style.color = idx === DEFAULT_IDX
+          ? 'rgba(255,255,255,.75)'
+          : 'var(--glow)';
+      }
+
+      btnDec.addEventListener('click', function () { if (idx > 0) { idx--; apply(); } });
+      btnInc.addEventListener('click', function () { if (idx < STEPS.length - 1) { idx++; apply(); } });
+      btnRst.addEventListener('click', function () { idx = DEFAULT_IDX; apply(); });
+
+      apply();
+    }());
   </script>
 </body>
 
