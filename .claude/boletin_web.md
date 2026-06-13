@@ -1,0 +1,2 @@
+revisa la estrucctura del boletin web y revisa lo que establece el framework para mirar si se cumple o no en cada una de las capas, y si se cumplen los conceptos que se establecen en cada una de las capas.
+Vincula el logo institucional que se encuentra en src en la cabecera del boletín, manteniendo un buen diseño de trabajo.

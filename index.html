@@ -1,0 +1,1914 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Boletín institucional de la Maestría en Diseño UX – MDUX. Universidad Nacional Abierta y a Distancia – UNAD.">
+  <meta property="og:title" content="CONECTA MDUX — Boletín No. 01">
+  <meta property="og:description"
+    content="Conoce, participa y apropia el Proyecto Educativo del Programa que orienta tu formación como diseñador de experiencias.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/src/logo-unad.png">
+  <meta name="theme-color" content="#0E0D1F">
+  <title>CONECTA MDUX — Boletín No. 01</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300;1,9..144,600&family=Inter:wght@300;400;500&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Escala tipográfica: xs=12 sm=15 base=17 md=22 lg=34 xl=clamp(34,5.5vw,52) */
+
+    :root {
+      --ts-xs: 12px;
+      --ts-sm: 15px;
+      --ts-base: 17px;
+      --ts-md: 22px;
+      --ts-lg: 34px;
+      --ts-xl: clamp(34px, 5.5vw, 52px);
+
+      --lh-display: 1.18;
+      --lh-quote: 1.6;
+      --lh-body: 1.78;
+      --lh-tight: 1.4;
+
+      --ink: #0E0D1F;
+      --mid: #48485E;
+      --soft: #72728A;
+      --faint: #A0A0B8;
+      --white: #FFFFFF;
+      --page: #F7F6F3;
+      --accent: #4A3FB5;
+      --accent2: #7B6FD4;
+      --glow: #C8C2FF;
+      --rose: #C0253D;
+      --gold: #A0550A;
+
+      /* ── M3 EXPRESSIVE ── */
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-emphasized: cubic-bezier(0.2, 0, 0, 1);
+      --ease-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+      --ease-accelerate: cubic-bezier(0.3, 0, 0.8, 0.15);
+
+      --shape-sm: 8px;
+      --shape-md: 12px;
+      --shape-lg: 16px;
+      --shape-xl: 28px;
+
+      --prim-cont: #E8E5FF;
+      --surf-low: #F0EEF8;
+      --state-hover: rgba(74, 63, 181, .08);
+      --state-press: rgba(74, 63, 181, .12);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: var(--ts-base);
+      line-height: var(--lh-body);
+      color: var(--ink);
+      background: var(--page);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-weight: 400;
+    }
+
+    /* ── ACCESIBILIDAD ── */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 1rem;
+      background: var(--ink);
+      color: #fff;
+      padding: 8px 16px;
+      border-radius: 0 0 8px 8px;
+      font-size: var(--ts-sm);
+      font-weight: 500;
+      z-index: 999;
+      transition: top .2s;
+    }
+
+    .skip-link:focus {
+      top: 0;
+    }
+
+    /* ── PROGRESO ── */
+    .progress-rail {
+      position: fixed;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      z-index: 100;
+      pointer-events: none;
+      background: rgba(74, 63, 181, .08);
+    }
+
+    .progress-fill {
+      width: 100%;
+      height: 0%;
+      background: linear-gradient(180deg, #4A3FB5, #C0253D);
+      transition: height .08s linear;
+    }
+
+    /* ── HOJA ── */
+    .sheet {
+      max-width: 680px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 0 0 1px rgba(0, 0, 0, .05), 0 8px 40px rgba(0, 0, 0, .06);
+    }
+
+    /* ════════════════════════════════════
+   METADATA STRIP
+════════════════════════════════════ */
+    .meta-strip {
+      background: var(--ink);
+      padding: 10px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .meta-strip-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: #C8C2FF;
+      opacity: 1;
+    }
+
+    .unad-logo {
+      height: 28px;
+      width: auto;
+      display: block;
+      filter: brightness(0) invert(1);
+      opacity: .8;
+    }
+
+    .meta-strip-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .meta-strip-right span,
+    .meta-strip-right time {
+      font-size: var(--ts-xs);
+      color: rgba(255, 255, 255, .72);
+      letter-spacing: .04em;
+    }
+
+    .meta-sep {
+      width: 1px;
+      height: 10px;
+      background: rgba(255, 255, 255, .1);
+    }
+
+    /* ════════════════════════════════════
+   HERO
+════════════════════════════════════ */
+    .hero {
+      background: var(--ink);
+      padding: 56px 48px 52px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 540px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      pointer-events: none;
+      will-change: transform;
+    }
+
+    .orb-1 {
+      width: 480px;
+      height: 480px;
+      top: -120px;
+      right: -100px;
+      background: rgba(74, 63, 181, .5);
+      animation: orbFloat 18s ease-in-out infinite;
+    }
+
+    .orb-2 {
+      width: 320px;
+      height: 320px;
+      bottom: -80px;
+      left: -60px;
+      background: rgba(192, 37, 61, .28);
+      animation: orbFloat 22s ease-in-out infinite reverse;
+      animation-delay: -7s;
+    }
+
+    .orb-3 {
+      width: 240px;
+      height: 240px;
+      top: 40%;
+      left: 28%;
+      background: rgba(59, 31, 140, .35);
+      animation: orbFloat 16s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+
+    @keyframes orbFloat {
+
+      0%,
+      100% {
+        transform: translate(0, 0) scale(1);
+      }
+
+      33% {
+        transform: translate(40px, -40px) scale(1.08);
+      }
+
+      66% {
+        transform: translate(-24px, 16px) scale(.94);
+      }
+    }
+
+    .particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: rise var(--d, 20s) linear infinite;
+      animation-delay: var(--delay, 0s);
+      opacity: 0;
+    }
+
+    @keyframes rise {
+      0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0);
+      }
+
+      10% {
+        opacity: var(--o, .6);
+      }
+
+      90% {
+        opacity: var(--o, .6);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-620px) translateX(var(--dx, 20px));
+      }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Eyebrow */
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid rgba(200, 194, 255, .25);
+      background: rgba(255, 255, 255, .05);
+      border-radius: 100px;
+      padding: 5px 16px;
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--glow);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp .6s .1s ease both;
+    }
+
+    .dot-pulse {
+      width: 6px;
+      height: 6px;
+      background: var(--glow);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      50% {
+        opacity: .3;
+        transform: scale(.5);
+      }
+    }
+
+    /* Headline — --ts-xl, Fraunces, 300/700 */
+    .hero-title {
+      margin-bottom: 20px;
+    }
+
+    .hero-title-line {
+      display: block;
+      font-family: 'Fraunces', serif;
+      font-size: var(--ts-xl);
+      line-height: var(--lh-display);
+      color: #fff;
+      opacity: 0;
+    }
+
+    .l1 {
+      font-weight: 700;
+      animation: fadeUp .7s .25s ease both;
+    }
+
+    .l2 {
+      font-weight: 300;
+      font-style: italic;
+      color: var(--glow);
+      animation: fadeUp .7s .4s ease both;
+    }
+
+    .l3 {
+      font-weight: 700;
+      animation: fadeUp .7s .55s ease both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Subtítulo hero — --ts-base */
+    .hero-sub {
+      font-size: var(--ts-base);
+      font-weight: 300;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, .55);
+      max-width: 380px;
+      opacity: 0;
+      animation: fadeUp .7s .7s ease both;
+      margin-bottom: 36px;
+    }
+
+    .hero-sub strong {
+      color: rgba(255, 255, 255, .75);
+      font-weight: 500;
+    }
+
+    /* Botones */
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      opacity: 0;
+      animation: fadeUp .7s .9s ease both;
+      margin-bottom: 52px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-size: var(--ts-sm);
+      font-weight: 500;
+      padding: 12px 26px;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: transform .35s var(--ease-spring),
+        box-shadow .3s var(--ease-emphasized),
+        opacity .2s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .2);
+    }
+
+    .btn-primary:active {
+      transform: scale(.96);
+      transition-duration: .1s;
+    }
+
+    .btn-primary:focus-visible {
+      outline: 3px solid var(--glow);
+      outline-offset: 3px;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: var(--glow);
+      font-size: var(--ts-sm);
+      font-weight: 400;
+      padding: 12px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+      border: 1px solid rgba(200, 194, 255, .28);
+      transition: transform .35s var(--ease-spring),
+        background .2s var(--ease-emphasized),
+        border-color .2s,
+        color .2s,
+        box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(200, 194, 255, .10);
+      border-color: rgba(200, 194, 255, .6);
+      color: #fff;
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 6px 20px rgba(74, 63, 181, .22);
+    }
+
+    .btn-secondary:active {
+      transform: scale(.96);
+      transition-duration: .1s;
+    }
+
+    .btn-secondary:focus-visible {
+      outline: 3px solid var(--glow);
+      outline-offset: 3px;
+    }
+
+    /* PEP label — --ts-xs */
+    .pep-label {
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(200, 194, 255, .45);
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeUp .6s 1.1s ease both;
+    }
+
+    /* PEP text — --ts-sm */
+    .pep-text {
+      font-size: var(--ts-sm);
+      font-weight: 300;
+      line-height: var(--lh-body);
+      color: rgba(255, 255, 255, .4);
+      max-width: 440px;
+      margin: 0 auto 24px;
+      opacity: 0;
+      animation: fadeUp .6s 1.2s ease both;
+    }
+
+    /* Pillars */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+      width: 100%;
+      max-width: 520px;
+      opacity: 0;
+      animation: fadeUp .7s 1.35s ease both;
+    }
+
+    .pillar-card {
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid rgba(255, 255, 255, .08);
+      border-radius: var(--shape-lg);
+      padding: 16px;
+      text-align: left;
+      transition: background .3s var(--ease-emphasized),
+        border-color .3s var(--ease-emphasized),
+        transform .35s var(--ease-spring),
+        box-shadow .3s var(--ease-emphasized);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(200, 194, 255, 0);
+      transition: background .25s var(--ease-emphasized);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .pillar-card:hover {
+      background: rgba(255, 255, 255, .09);
+      border-color: rgba(200, 194, 255, .32);
+      transform: translateY(-5px) scale(1.01);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .22), 0 0 0 1px rgba(200, 194, 255, .12);
+    }
+
+    .pillar-card:hover::after {
+      background: rgba(200, 194, 255, .05);
+    }
+
+    .pillar-card:active {
+      transform: translateY(-2px) scale(.99);
+      transition-duration: .12s;
+    }
+
+    .pillar-card:focus-visible {
+      outline: 2px solid var(--glow);
+      outline-offset: 2px;
+      border-radius: var(--shape-lg);
+    }
+
+    .pillar-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--shape-md);
+      background: rgba(200, 194, 255, .14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 18px;
+      transition: transform .4s var(--ease-spring);
+    }
+
+    .pillar-card:hover .pillar-icon {
+      transform: scale(1.18) rotate(-8deg);
+    }
+
+    /* pillar title — --ts-sm */
+    .pillar-title {
+      font-size: var(--ts-base);
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 4px;
+      line-height: var(--lh-tight);
+    }
+
+    /* pillar desc — --ts-xs */
+    .pillar-desc {
+      font-size: var(--ts-sm);
+      font-weight: 300;
+      color: rgba(255, 255, 255, .4);
+      line-height: var(--lh-body);
+    }
+
+    /* ════════════════════════════════════
+   ONDAS
+════════════════════════════════════ */
+    .wave-down {
+      background: var(--ink);
+      line-height: 0;
+    }
+
+    .wave-down svg {
+      display: block;
+      width: 100%;
+    }
+
+    .wave-up {
+      background: var(--white);
+      line-height: 0;
+    }
+
+    .wave-up svg {
+      display: block;
+      width: 100%;
+    }
+
+    /* ════════════════════════════════════
+   ESPACIOS DE IMAGEN
+════════════════════════════════════ */
+    .img-hero {
+      width: 100%;
+      aspect-ratio: 16/7;
+    }
+
+    .img-media {
+      width: calc(100% + 96px);
+      margin-left: -48px;
+      aspect-ratio: 3/2;
+    }
+
+    .img-inline {
+      width: 100%;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+    }
+
+    .img-wide {
+      width: 100%;
+      aspect-ratio: 21/9;
+    }
+
+    .img-hero,
+    .img-media,
+    .img-inline,
+    .img-wide {
+      display: block;
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .img-hero img,
+    .img-media img,
+    .img-inline img,
+    .img-wide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 7s ease;
+    }
+
+    .img-hero:hover img,
+    .img-media:hover img,
+    .img-inline:hover img,
+    .img-wide:hover img {
+      transform: scale(1.03);
+    }
+
+    .img-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      inset: 0;
+    }
+
+    .img-placeholder.warm {
+      background: linear-gradient(135deg, #FDF0F3, #FFFBEB);
+    }
+
+    .img-placeholder.cool {
+      background: linear-gradient(135deg, #EAF2FF, #EDEAFF);
+    }
+
+    .img-placeholder.base {
+      background: linear-gradient(135deg, #EDEAFF, #F5EAF0);
+    }
+
+    .ph-icon {
+      font-size: var(--ts-lg);
+      opacity: .3;
+    }
+
+    /* placeholder text — --ts-xs */
+    .ph-label {
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: rgba(74, 63, 181, .38);
+      text-align: center;
+    }
+
+    .ph-sub {
+      font-size: var(--ts-xs);
+      color: rgba(74, 63, 181, .24);
+      text-align: center;
+    }
+
+    /* ════════════════════════════════════
+   CUERPO — el hilo conductor
+════════════════════════════════════ */
+    .body {
+      padding: 0 48px;
+      background: var(--white);
+      position: relative;
+    }
+
+    .body-accent-line {
+      position: absolute;
+      left: 20px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      pointer-events: none;
+      background: linear-gradient(180deg,
+          transparent 0%,
+          rgba(74, 63, 181, .14) 8%,
+          rgba(74, 63, 181, .28) 35%,
+          rgba(192, 37, 61, .22) 65%,
+          rgba(74, 63, 181, .1) 88%,
+          transparent 100%);
+    }
+
+    /* Apertura */
+    .opening {
+      padding: 52px 0 0;
+    }
+
+    /* Cita — Fraunces --ts-md, 300i */
+    .opening-quote {
+      font-family: 'Fraunces', serif;
+      font-size: var(--ts-md);
+      font-weight: 300;
+      font-style: italic;
+      line-height: var(--lh-quote);
+      color: var(--ink);
+      border-left: 3px solid var(--rose);
+      border-radius: 0;
+      padding-left: 20px;
+      margin-bottom: 24px;
+    }
+
+    /* Cuerpo — Inter --ts-base, 400 */
+    .body-text {
+      font-size: var(--ts-base);
+      font-weight: 400;
+      line-height: var(--lh-body);
+      color: var(--mid);
+      margin-bottom: 18px;
+    }
+
+    .body-text:last-child {
+      margin-bottom: 0;
+    }
+
+    .body-text strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Divisor animado */
+    .animated-divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      height: 40px;
+      margin: 36px 0;
+      overflow: hidden;
+    }
+
+    .div-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(0, 0, 0, .07);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .7s ease;
+    }
+
+    .div-line.right {
+      transform-origin: right;
+    }
+
+    .div-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent2);
+      flex-shrink: 0;
+      transform: scale(0);
+      transition: transform .5s .2s var(--ease-spring);
+    }
+
+    .animated-divider.visible .div-line {
+      transform: scaleX(1);
+    }
+
+    .animated-divider.visible .div-dot {
+      transform: scale(1);
+    }
+
+    /* Cabeceras de sección */
+    .section-head {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    /* label — --ts-xs */
+    .section-label {
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(0, 0, 0, .06);
+    }
+
+    /* Botón de enlace */
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      font-size: var(--ts-sm);
+      font-weight: 500;
+      text-decoration: none;
+      border: 1.5px solid var(--accent);
+      border-radius: 100px;
+      padding: 9px 20px;
+      transition: background .2s var(--ease-emphasized),
+        color .2s,
+        transform .35s var(--ease-spring),
+        box-shadow .3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .link-btn:hover {
+      background: var(--accent);
+      color: #fff;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 8px 22px rgba(74, 63, 181, .3);
+    }
+
+    .link-btn:active {
+      transform: scale(.96);
+      transition-duration: .1s;
+    }
+
+    .link-btn:focus-visible {
+      outline: 3px solid var(--accent2);
+      outline-offset: 3px;
+    }
+
+    /* Actualizaciones */
+    .updates-list {
+      list-style: none;
+    }
+
+    .update-row {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(0, 0, 0, .05);
+      opacity: 0;
+      transform: translateX(-14px);
+      transition: opacity .55s var(--ease-decelerate),
+        transform .55s var(--ease-decelerate);
+    }
+
+    .update-row.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .update-row:last-child {
+      border-bottom: none;
+    }
+
+    .update-row-inner {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      width: 100%;
+      transition: transform .35s var(--ease-spring);
+      border-radius: var(--shape-sm);
+    }
+
+    .update-row:hover .update-row-inner {
+      transform: translateX(6px);
+    }
+
+    .update-ico {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--shape-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--ts-base);
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: transform .4s var(--ease-spring);
+    }
+
+    .update-row:hover .update-ico {
+      transform: scale(1.18) rotate(-7deg);
+    }
+
+    /* update title — --ts-base, 500 */
+    .update-title {
+      font-size: var(--ts-md);
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 5px;
+      line-height: var(--lh-tight);
+    }
+
+    /* update desc — --ts-sm, 400 */
+    .update-desc {
+      font-size: var(--ts-sm);
+      font-weight: 400;
+      color: var(--soft);
+      line-height: var(--lh-body);
+    }
+
+    /* Bloque egresado */
+    .egresado-block {
+      background: linear-gradient(135deg, #F0EEFF 0%, #FDF0F3 100%);
+      border-radius: var(--shape-xl);
+      padding: 32px;
+      border: 1px solid rgba(74, 63, 181, .12);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(74, 63, 181, .07), 0 1px 4px rgba(74, 63, 181, .05);
+    }
+
+    .egresado-block::before {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 160px;
+      height: 160px;
+      background: rgba(74, 63, 181, .06);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* egresado label — --ts-xs */
+    .egresado-label {
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(74, 63, 181, .55);
+      margin-bottom: 14px;
+    }
+
+    /* egresado quote — Fraunces --ts-md, 300i */
+    .egresado-quote {
+      font-family: 'Fraunces', serif;
+      font-size: var(--ts-md);
+      font-weight: 300;
+      font-style: italic;
+      line-height: var(--lh-quote);
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+
+    .competencias {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+
+    .comp-tag {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border-radius: var(--shape-md);
+      padding: 11px 14px;
+      border: 1px solid rgba(74, 63, 181, .09);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .45s var(--ease-decelerate),
+        transform .45s var(--ease-decelerate),
+        border-color .2s,
+        box-shadow .3s var(--ease-emphasized);
+    }
+
+    .comp-tag.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .comp-tag:hover {
+      border-color: rgba(74, 63, 181, .32);
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: 0 6px 18px rgba(74, 63, 181, .1);
+    }
+
+    .comp-tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* comp text — --ts-sm, 500 */
+    .comp-tag-text {
+      font-size: var(--ts-base);
+      font-weight: 500;
+      color: var(--ink);
+    }
+
+    /* Estadísticas */
+    .stat-row {
+      display: flex;
+      gap: 0;
+      margin-top: 24px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(74, 63, 181, .09);
+    }
+
+    .stat-item {
+      flex: 1;
+      text-align: center;
+    }
+
+    .stat-item+.stat-item {
+      border-left: 1px solid rgba(74, 63, 181, .09);
+    }
+
+    /* stat num — Fraunces --ts-lg */
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: var(--ts-lg);
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 5px;
+      letter-spacing: -.02em;
+    }
+
+    /* stat label — --ts-xs */
+    .stat-label {
+      font-size: var(--ts-sm);
+      font-weight: 400;
+      color: var(--soft);
+      letter-spacing: .02em;
+    }
+
+    /* Trivia */
+    .trivia-box {
+      background: #FFFBEB;
+      border: 1px solid rgba(253, 230, 138, .8);
+      border-radius: var(--shape-xl);
+      padding: 24px;
+      display: flex;
+      gap: 14px;
+      margin-top: 28px;
+      box-shadow: 0 4px 16px rgba(160, 85, 10, .06);
+    }
+
+    .trivia-ico {
+      font-size: var(--ts-base);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* trivia title — --ts-xs */
+    .trivia-title {
+      font-size: var(--ts-xs);
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+
+    /* trivia text — --ts-sm */
+    .trivia-text {
+      font-size: var(--ts-base);
+      font-weight: 400;
+      color: #78350F;
+      line-height: var(--lh-body);
+    }
+
+    .trivia-text strong {
+      color: #92400E;
+      font-weight: 500;
+    }
+
+    .body-end {
+      height: 52px;
+      background: var(--white);
+    }
+
+    /* ════════════════════════════════════
+   CTA
+════════════════════════════════════ */
+    .cta {
+      background: var(--ink);
+      padding: 52px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .cta-particle {
+      position: absolute;
+      border-radius: 50%;
+      animation: rise var(--d, 20s) linear infinite;
+      animation-delay: var(--delay, 0s);
+      opacity: 0;
+    }
+
+    .cta>.cta-glow,
+    .cta>.cta-particles {
+      position: absolute;
+      z-index: 0;
+    }
+
+    .cta>h2,
+    .cta>p,
+    .cta>a {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cta-glow {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      background: rgba(74, 63, 181, .24);
+      border-radius: 50%;
+      filter: blur(70px);
+      pointer-events: none;
+    }
+
+    /* cta head — Fraunces --ts-lg, 700 */
+    .cta-head {
+      font-family: 'Fraunces', serif;
+      font-size: var(--ts-lg);
+      font-weight: 700;
+      line-height: var(--lh-display);
+      color: #fff;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* cta sub — --ts-base, 300 */
+    .cta-sub {
+      font-size: var(--ts-base);
+      font-weight: 300;
+      line-height: var(--lh-body);
+      color: rgba(255, 255, 255, .45);
+      margin-bottom: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* cta btn — --ts-sm */
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      color: var(--ink);
+      font-size: var(--ts-sm);
+      font-weight: 500;
+      padding: 14px 32px;
+      border-radius: 100px;
+      text-decoration: none;
+      position: relative;
+      z-index: 1;
+      overflow: hidden;
+      transition: transform .35s var(--ease-spring),
+        box-shadow .3s var(--ease-emphasized),
+        opacity .2s;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, .28);
+    }
+
+    .cta-btn:active {
+      transform: scale(.96);
+      transition-duration: .1s;
+    }
+
+    .cta-btn:focus-visible {
+      outline: 3px solid var(--glow);
+      outline-offset: 3px;
+    }
+
+    .part {
+      background: var(--ink);
+      padding: 0 48px 44px;
+    }
+
+    .part-inner {
+      border-top: 1px solid rgba(255, 255, 255, .07);
+      padding-top: 28px;
+      text-align: center;
+    }
+
+    /* part text — --ts-sm, 300i */
+    .part-text {
+      font-size: var(--ts-base);
+      font-weight: 300;
+      font-style: italic;
+      line-height: var(--lh-body);
+      color: rgba(255, 255, 255, .38);
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    .part-text strong {
+      color: rgba(255, 255, 255, .6);
+      font-style: normal;
+      font-weight: 500;
+    }
+
+    /* ════════════════════════════════════
+   FOOTER
+════════════════════════════════════ */
+    footer {
+      background: var(--ink);
+      padding: 24px 48px 36px;
+      border-top: 1px solid rgba(255, 255, 255, .05);
+      text-align: center;
+    }
+
+    /* footer brand — Fraunces --ts-base */
+    .footer-brand {
+      font-family: 'Fraunces', serif;
+      font-size: var(--ts-base);
+      font-weight: 700;
+      color: rgba(255, 255, 255, .65);
+      letter-spacing: .05em;
+      margin-bottom: 14px;
+    }
+
+    .footer-sep {
+      width: 28px;
+      height: 1px;
+      background: rgba(255, 255, 255, .1);
+      margin: 0 auto 14px;
+    }
+
+    /* footer meta — --ts-xs */
+    .footer-meta {
+      font-size: var(--ts-sm);
+      font-weight: 400;
+      color: rgba(255, 255, 255, .28);
+      line-height: 2.1;
+      font-style: normal;
+    }
+
+    .footer-meta a {
+      color: rgba(255, 255, 255, .42);
+      text-decoration: none;
+      transition: color .15s;
+    }
+
+    .footer-meta a:hover {
+      color: #fff;
+    }
+
+    .footer-meta a:focus-visible {
+      outline: 2px solid var(--glow);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* ════════════════════════════════════
+   M3 RIPPLE
+════════════════════════════════════ */
+    .m3-ripple {
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .3);
+      transform: scale(0);
+      animation: m3-ripple .55s var(--ease-emphasized) forwards;
+      pointer-events: none;
+    }
+
+    @keyframes m3-ripple {
+      to {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* ════════════════════════════════════
+   REVEAL
+════════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s var(--ease-decelerate), transform .7s var(--ease-decelerate);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════ */
+    @media (max-width: 520px) {
+      :root {
+        --ts-xl: clamp(28px, 7vw, 36px);
+        --ts-md: 18px;
+        --ts-lg: 26px;
+      }
+
+      .hero {
+        padding: 40px 24px 44px;
+        min-height: auto;
+      }
+
+      .meta-strip {
+        padding: 10px 24px;
+      }
+
+      .body {
+        padding: 0 24px;
+      }
+
+      .img-media {
+        width: calc(100% + 48px);
+        margin-left: -24px;
+      }
+
+      .cta,
+      .part,
+      footer {
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+
+      .pillars,
+      .competencias {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .body-accent-line {
+        display: none;
+      }
+
+      .img-hero {
+        aspect-ratio: 4/3;
+      }
+
+      .img-wide {
+        aspect-ratio: 4/3;
+      }
+    }
+
+    /* ════════════════════════════════════
+   REDUCED MOTION
+════════════════════════════════════ */
+    @media (prefers-reduced-motion: reduce) {
+
+      .orb,
+      .particle,
+      .dot-pulse {
+        animation: none;
+      }
+
+      .hero-title-line,
+      .hero-sub,
+      .hero-actions,
+      .hero-pill,
+      .pep-label,
+      .pep-text,
+      .pillars {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+
+      .reveal,
+      .update-row,
+      .comp-tag {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+
+      .cta-particle {
+        animation: none;
+      }
+
+      .m3-ripple {
+        animation: none;
+        opacity: 0;
+      }
+
+      .animated-divider .div-line {
+        transform: scaleX(1);
+      }
+
+      .animated-divider .div-dot {
+        transform: scale(1);
+      }
+
+      .img-hero:hover img,
+      .img-media:hover img,
+      .img-inline:hover img,
+      .img-wide:hover img {
+        transform: none;
+      }
+
+      * {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="progress-rail" aria-hidden="true">
+    <div class="progress-fill" id="pbar"></div>
+  </div>
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <div class="sheet">
+
+    <!-- METADATA STRIP -->
+    <div class="meta-strip" role="note" aria-label="Identificación del boletín">
+      <div class="meta-strip-left">
+        <img src="src/logo-unad.png" class="unad-logo" alt="UNAD — Acreditación de Alta Calidad" height="28">
+        <span>CONECTA MDUX</span>
+      </div>
+      <div class="meta-strip-right">
+        <span>Boletín No. 01</span>
+        <div class="meta-sep" aria-hidden="true"></div>
+        <time datetime="2025-06">Junio 2025</time>
+      </div>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero" role="banner">
+      <div class="orb orb-1" aria-hidden="true"></div>
+      <div class="orb orb-2" aria-hidden="true"></div>
+      <div class="orb orb-3" aria-hidden="true"></div>
+      <div class="particles" aria-hidden="true">
+        <div class="particle"
+          style="width:2px;height:2px;background:#C8C2FF;left:12%;bottom:0;--d:18s;--delay:0s;--o:.7;--dx:30px;"></div>
+        <div class="particle"
+          style="width:1.5px;height:1.5px;background:#AFA9EC;left:25%;bottom:0;--d:22s;--delay:-5s;--o:.5;--dx:-20px;">
+        </div>
+        <div class="particle"
+          style="width:2px;height:2px;background:#C8C2FF;left:40%;bottom:0;--d:19s;--delay:-9s;--o:.35;--dx:40px;">
+        </div>
+        <div class="particle"
+          style="width:2px;height:2px;background:#C8C2FF;left:59%;bottom:0;--d:25s;--delay:-3s;--o:.6;--dx:-35px;">
+        </div>
+        <div class="particle"
+          style="width:1.5px;height:1.5px;background:#AFA9EC;left:75%;bottom:0;--d:17s;--delay:-12s;--o:.5;--dx:25px;">
+        </div>
+        <div class="particle"
+          style="width:2px;height:2px;background:#fff;left:88%;bottom:0;--d:21s;--delay:-6s;--o:.22;--dx:-40px;"></div>
+        <div class="particle"
+          style="width:1px;height:1px;background:#C8C2FF;left:18%;bottom:0;--d:24s;--delay:-15s;--o:.4;--dx:50px;">
+        </div>
+        <div class="particle"
+          style="width:2px;height:2px;background:#AFA9EC;left:67%;bottom:0;--d:20s;--delay:-8s;--o:.5;--dx:-25px;">
+        </div>
+      </div>
+      <div class="hero-inner">
+        <div class="hero-pill" role="note" aria-label="Boletín institucional activo">
+          <span class="dot-pulse" aria-hidden="true"></span>Boletín CONECTA MDUX
+        </div>
+        <h1 class="hero-title">
+          <span class="hero-title-line l1">Conoce el programa</span>
+          <span class="hero-title-line l2">que está formando</span>
+          <span class="hero-title-line l3">el diseño del futuro.</span>
+        </h1>
+        <p class="hero-sub"><strong>Maestría en Diseño UX</strong> · Universidad Nacional Abierta y a Distancia – UNAD
+        </p>
+        <nav class="hero-actions" aria-label="Acciones principales">
+          <a href="https://maestriadisenoux.wixsite.com/mdux/programa" class="btn-primary"
+            aria-label="Consultar información académica del programa MDUX">
+            Consultar programa
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </a>
+          <a href="https://estudios.unad.edu.co/inscripciones-y-matriculas" class="btn-secondary"
+            aria-label="Iniciar proceso de inscripción">
+            Inscríbete
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M8 3l5 5-5 5M3 8h10" />
+            </svg>
+          </a>
+        </nav>
+        <p class="pep-label" aria-label="Sección: Proyecto Educativo del Programa">Proyecto Educativo del Programa</p>
+        <p class="pep-text">La brújula que orienta tu formación como diseñador de experiencias de usuario.</p>
+        <div class="pillars" role="list" aria-label="Pilares del programa MDUX">
+          <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-icon" aria-hidden="true">🎯</div>
+            <div class="pillar-title">Perfil del egresado</div>
+            <div class="pillar-desc">UX, accesibilidad, innovación y transformación digital</div>
+          </div>
+          <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-icon" aria-hidden="true">📐</div>
+            <div class="pillar-title">Componentes curriculares</div>
+            <div class="pillar-desc">Estructura y ruta de tu formación completa</div>
+          </div>
+          <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-icon" aria-hidden="true">🧪</div>
+            <div class="pillar-title">Estrategias pedagógicas</div>
+            <div class="pillar-desc">Aprendizaje activo centrado en el usuario</div>
+          </div>
+          <div class="pillar-card" role="listitem" tabindex="0">
+            <div class="pillar-icon" aria-hidden="true">✅</div>
+            <div class="pillar-title">Procesos de calidad</div>
+            <div class="pillar-desc">Autoevaluación y mejora continua del programa</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="wave-down" aria-hidden="true">
+      <svg viewBox="0 0 680 52" preserveAspectRatio="none" height="52">
+        <path d="M0,0 L680,0 L680,16 Q340,56 0,16 Z" fill="#0E0D1F" />
+        <path d="M0,16 Q340,56 680,16 L680,52 L0,52 Z" fill="#ffffff" />
+      </svg>
+    </div>
+
+    <!-- IMAGEN 1 — 16:7, sangre completa -->
+    <figure class="img-hero" aria-label="Imagen principal del boletín">
+      <img src="src/ima1.png" alt="Comunidad académica de la Maestría en Diseño UX — UNAD">
+    </figure>
+
+    <!-- CUERPO -->
+    <main id="main-content" class="body">
+      <div class="body-accent-line" aria-hidden="true"></div>
+
+      <div class="opening reveal">
+        <blockquote class="opening-quote">
+          "Conoce, participa y apropia el Proyecto Educativo del Programa que orienta tu formación como diseñador de
+          experiencias."
+        </blockquote>
+        <p class="body-text">Este boletín es el espacio donde la <strong>Maestría MDUX</strong> comparte lo que define
+          su identidad: rutas formativas, procesos de calidad, convocatorias y los recursos que necesitas para
+          apropiarte del programa al que perteneces. Aquí encuentras el hilo que conecta tu aprendizaje con los
+          propósitos de una comunidad que diseña con propósito.</p>
+      </div>
+
+      <div class="animated-divider" aria-hidden="true">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line right"></div>
+      </div>
+
+      <div class="ruta reveal">
+        <div class="section-head">
+          <span class="section-label">Tu ruta de formación</span>
+          <div class="section-line" aria-hidden="true"></div>
+        </div>
+        <p class="body-text">Consulta la organización curricular completa, los componentes formativos y los recursos
+          académicos del programa. Todo lo que necesitas para entender cómo está diseñado tu aprendizaje — <strong>y por
+            qué está diseñado así.</strong></p>
+        <a href="https://maestriadisenoux.wixsite.com/mdux/programa" class="link-btn"
+          aria-label="Consultar información académica completa del programa">
+          Consultar información académica
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 8h10M9 4l4 4-4 4" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- IMAGEN 2 — 3:2, rompe el ancho -->
+      <!-- Para agregar: reemplaza <div class="img-placeholder cool"> con <img src="imagen.jpg" alt="…"> -->
+      <!-- Proporción recomendada: 3:2 · 1020×680 px · Taller, clase, trabajo colaborativo -->
+      <div class="animated-divider" aria-hidden="true">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line right"></div>
+      </div>
+      <figure class="img-hero" aria-label="Imagen principal del boletín">
+        <img src="src/ima2.png" alt="Comunidad académica de la Maestría en Diseño UX — UNAD">
+      </figure>
+      <div class="animated-divider" aria-hidden="true">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line right"></div>
+      </div>
+
+      <div>
+        <div class="section-head reveal">
+          <span class="section-label">Actualizaciones MDUX</span>
+          <div class="section-line" aria-hidden="true"></div>
+        </div>
+        <ul class="updates-list" aria-label="Actualizaciones del programa">
+          <li class="update-row" style="transition-delay:.05s">
+            <div class="update-row-inner">
+              <div class="update-ico" style="background:#EDE9FF;" aria-hidden="true">📅</div>
+              <div>
+                <div class="update-title">Eventos académicos</div>
+                <div class="update-desc">Webinars y seminarios especializados sobre tendencias UX. Participa y construye
+                  red con la comunidad MDUX.</div>
+              </div>
+            </div>
+          </li>
+          <li class="update-row" style="transition-delay:.12s">
+            <div class="update-row-inner">
+              <div class="update-ico" style="background:#FDE8EC;" aria-hidden="true">📣</div>
+              <div>
+                <div class="update-title">Convocatorias abiertas</div>
+                <div class="update-desc">Procesos de selección y proyectos especiales donde tu participación activa hace
+                  la diferencia. Mantente al tanto de fechas y requisitos.</div>
+              </div>
+            </div>
+          </li>
+          <li class="update-row" style="transition-delay:.19s">
+            <div class="update-row-inner">
+              <div class="update-ico" style="background:#E4F5EC;" aria-hidden="true">🔬</div>
+              <div>
+                <div class="update-title">Investigación y semilleros</div>
+                <div class="update-desc">Líneas de investigación activas en diseño centrado en el usuario. El
+                  aprendizaje como aporte real al campo.</div>
+              </div>
+            </div>
+          </li>
+          <li class="update-row" style="transition-delay:.26s">
+            <div class="update-row-inner">
+              <div class="update-ico" style="background:#E0F2FE;" aria-hidden="true">⚡</div>
+              <div>
+                <div class="update-title">Innovación digital</div>
+                <div class="update-desc">Transformación de entornos virtuales con herramientas que reflejan las
+                  tendencias UX actuales.</div>
+              </div>
+            </div>
+          </li>
+          <li class="update-row" style="transition-delay:.33s">
+            <div class="update-row-inner">
+              <div class="update-ico" style="background:#FFF8E1;" aria-hidden="true">✅</div>
+              <div>
+                <div class="update-title">Procesos de calidad</div>
+                <div class="update-desc">Autoevaluación, acreditación y mejora continua. La calidad del programa la
+                  construimos entre todos.</div>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="animated-divider" aria-hidden="true">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line right"></div>
+      </div>
+
+      <figure class="img-hero" aria-label="Imagen principal del boletín">
+        <img src="src/ima3_1.png" alt="Comunidad académica de la Maestría en Diseño UX — UNAD">
+      </figure>
+      <div class="animated-divider" aria-hidden="true">
+        <div class="div-line"></div>
+        <div class="div-dot"></div>
+        <div class="div-line right"></div>
+      </div>
+
+      <div class="egresado-block reveal" role="region" aria-labelledby="egresado-heading">
+        <div class="egresado-label" id="egresado-heading">Perfil del egresado MDUX</div>
+        <p class="egresado-quote">"El egresado MDUX integra las competencias que el mercado más demanda en diseño hoy."
+        </p>
+        <div class="competencias" role="list" aria-label="Competencias del egresado">
+          <div class="comp-tag" role="listitem" style="transition-delay:.05s">
+            <div class="comp-tag-dot" style="background:#4A3FB5;" aria-hidden="true"></div><span
+              class="comp-tag-text">Experiencia de usuario</span>
+          </div>
+          <div class="comp-tag" role="listitem" style="transition-delay:.12s">
+            <div class="comp-tag-dot" style="background:#C0253D;" aria-hidden="true"></div><span
+              class="comp-tag-text">Accesibilidad digital</span>
+          </div>
+          <div class="comp-tag" role="listitem" style="transition-delay:.19s">
+            <div class="comp-tag-dot" style="background:#0F6E56;" aria-hidden="true"></div><span
+              class="comp-tag-text">Innovación</span>
+          </div>
+          <div class="comp-tag" role="listitem" style="transition-delay:.26s">
+            <div class="comp-tag-dot" style="background:#854F0B;" aria-hidden="true"></div><span
+              class="comp-tag-text">Transformación digital</span>
+          </div>
+        </div>
+        <div class="stat-row" role="list" aria-label="Datos del programa">
+          <div class="stat-item" role="listitem">
+            <div class="stat-num" id="stat-semestres" aria-label="4 semestres">0</div>
+            <div class="stat-label">semestres</div>
+          </div>
+          <div class="stat-item" role="listitem">
+            <div class="stat-num" id="stat-creditos" aria-label="48 créditos">0</div>
+            <div class="stat-label">créditos</div>
+          </div>
+          <div class="stat-item" role="listitem">
+            <div class="stat-num" id="stat-modalidad" aria-label="100% virtual">0%</div>
+            <div class="stat-label">virtual</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="trivia-box reveal" aria-label="Dato sobre la formación MDUX">
+        <div class="trivia-ico" aria-hidden="true">💡</div>
+        <div>
+          <div class="trivia-title">¿Sabías que…?</div>
+          <p class="trivia-text">La MDUX forma diseñadores con <strong>visión sistémica y sensibilidad humana</strong> —
+            capaces de transformar no solo interfaces, sino experiencias completas de las personas con la tecnología.
+          </p>
+        </div>
+      </aside>
+
+    </main>
+
+    <div class="body-end" aria-hidden="true"></div>
+
+    <figure class="img-hero" aria-label="Imagen principal del boletín">
+      <img src="src/ima4.png" alt="Comunidad académica de la Maestría en Diseño UX — UNAD">
+    </figure>
+
+    <div class="wave-up" aria-hidden="true">
+      <svg viewBox="0 0 680 52" preserveAspectRatio="none" height="52">
+        <path d="M0,0 L680,0 L680,52 Q340,12 0,52 Z" fill="#ffffff" />
+        <path d="M0,52 Q340,12 680,52 L680,52 L0,52 Z" fill="#0E0D1F" />
+      </svg>
+    </div>
+
+    <section class="cta" aria-labelledby="cta-heading">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <div class="cta-particles" aria-hidden="true">
+        <div class="cta-particle"
+          style="width:2px;height:2px;left:8%;bottom:0;background:#C8C2FF;--d:19s;--delay:-2s;--o:.65;--dx:25px;"></div>
+        <div class="cta-particle"
+          style="width:1.5px;height:1.5px;left:22%;bottom:0;background:#AFA9EC;--d:23s;--delay:-7s;--o:.45;--dx:-18px;">
+        </div>
+        <div class="cta-particle"
+          style="width:2px;height:2px;left:38%;bottom:0;background:#fff;--d:17s;--delay:-11s;--o:.28;--dx:35px;"></div>
+        <div class="cta-particle"
+          style="width:2.5px;height:2.5px;left:55%;bottom:0;background:#C8C2FF;--d:21s;--delay:-4s;--o:.6;--dx:-30px;">
+        </div>
+        <div class="cta-particle"
+          style="width:1px;height:1px;left:70%;bottom:0;background:#AFA9EC;--d:25s;--delay:-14s;--o:.5;--dx:20px;">
+        </div>
+        <div class="cta-particle"
+          style="width:2px;height:2px;left:84%;bottom:0;background:#fff;--d:18s;--delay:-8s;--o:.22;--dx:-40px;"></div>
+        <div class="cta-particle"
+          style="width:1.5px;height:1.5px;left:46%;bottom:0;background:#C8C2FF;--d:22s;--delay:-16s;--o:.4;--dx:45px;">
+        </div>
+        <div class="cta-particle"
+          style="width:2px;height:2px;left:16%;bottom:0;background:#AFA9EC;--d:20s;--delay:-5s;--o:.55;--dx:-22px;">
+        </div>
+      </div>
+      <h2 id="cta-heading" class="cta-head">¿Listo para hacer parte<br>de la MDUX?</h2>
+      <p class="cta-sub">Inicia tu proceso de inscripción y matrícula.<br>La comunidad que diseña el futuro te está
+        esperando.</p>
+      <a href="https://estudios.unad.edu.co/inscripciones-y-matriculas" class="cta-btn"
+        aria-label="Iniciar proceso de inscripción a la Maestría MDUX en la UNAD">
+        Iniciar proceso de inscripción
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" />
+        </svg>
+      </a>
+    </section>
+
+    <div class="part">
+      <div class="part-inner">
+        <p class="part-text">Te invitamos a consultar los recursos institucionales y participar activamente en los
+          procesos académicos. <strong>Cada voz importa — la calidad de la MDUX la construimos entre todos.</strong></p>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-brand">CONECTA MDUX</div>
+      <div class="footer-sep" aria-hidden="true"></div>
+      <address class="footer-meta">
+        Coordinación MDUX · <a href="mailto:mdux@unad.edu.co">mdux@unad.edu.co</a><br>
+        Universidad Nacional Abierta y a Distancia – UNAD<br>
+        Sede Nacional José Celestino Mutis · Bogotá, D.C., Colombia<br>
+        <a href="https://www.unad.edu.co" target="_blank" rel="noopener noreferrer">www.unad.edu.co</a> ·
+        @UniversidadUNAD
+      </address>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      var mo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var pbar = document.getElementById('pbar');
+      function upd() {
+        var d = document.documentElement, s = d.scrollTop || document.body.scrollTop, t = d.scrollHeight - d.clientHeight;
+        if (t > 0) pbar.style.height = Math.round(s / t * 100) + '%';
+      }
+      window.addEventListener('scroll', upd, { passive: true });
+
+      if (!('IntersectionObserver' in window)) {
+        document.querySelectorAll('.reveal,.update-row,.comp-tag,.animated-divider').forEach(function (e) { e.classList.add('visible'); });
+        return;
+      }
+      function obs(sel, opts) {
+        var o = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); o.unobserve(e.target); } }); }, opts);
+        document.querySelectorAll(sel).forEach(function (e) { o.observe(e); });
+      }
+      obs('.reveal', { threshold: .1 });
+      obs('.update-row', { threshold: .08, rootMargin: '0px 0px -8px 0px' });
+      obs('.comp-tag', { threshold: .2 });
+      obs('.animated-divider', { threshold: .5 });
+
+      function count(id, target, suffix, dur) {
+        var el = document.getElementById(id);
+        if (!el) return;
+        if (mo) { el.textContent = target + (suffix || ''); return; }
+        var s = null;
+        function step(ts) {
+          if (!s) s = ts;
+          var p = Math.min((ts - s) / dur, 1), e = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(e * target) + (suffix || '');
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }
+      var so = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { so.unobserve(e.target); setTimeout(function () { count('stat-semestres', 3, '', 900); }, 100); setTimeout(function () { count('stat-creditos', 48, '', 1100); }, 250); setTimeout(function () { count('stat-modalidad', 100, '%', 1300); }, 400); } }); }, { threshold: .3 });
+      var sb = document.querySelector('.stat-row');
+      if (sb) so.observe(sb);
+
+      document.querySelectorAll('.pillar-card').forEach(function (c) {
+        c.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); c.style.background = 'rgba(200,194,255,.14)'; c.style.transform = 'translateY(-3px)'; setTimeout(function () { c.style.background = ''; c.style.transform = ''; }, 300); }
+        });
+      });
+
+      /* M3 Ripple — Capa 4 · Mover */
+      if (!mo) {
+        function attachRipple(el) {
+          el.addEventListener('click', function (ev) {
+            var r = el.getBoundingClientRect();
+            var rip = document.createElement('span');
+            rip.className = 'm3-ripple';
+            var size = Math.max(r.width, r.height) * 2.2;
+            rip.style.cssText = 'width:' + size + 'px;height:' + size + 'px;' +
+              'left:' + (ev.clientX - r.left - size / 2) + 'px;' +
+              'top:' + (ev.clientY - r.top - size / 2) + 'px;';
+            el.appendChild(rip);
+            setTimeout(function () { rip.remove(); }, 580);
+          });
+        }
+        document.querySelectorAll('.btn-primary,.btn-secondary,.link-btn,.cta-btn').forEach(attachRipple);
+      }
+    })();
+  </script>
+</body>
+
+</html>
