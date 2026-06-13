@@ -1315,6 +1315,23 @@
     }
 
     /* ════════════════════════════════════
+   LOGO SCROLL PARALLAX
+════════════════════════════════════ */
+    .scroll-logo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 28px;
+      width: auto;
+      pointer-events: none;
+      opacity: 0;
+      z-index: 49;
+      filter: brightness(0) invert(1);
+      will-change: transform, opacity;
+      transform-origin: center center;
+    }
+
+    /* ════════════════════════════════════
    ACCORDION — Innovación digital
 ════════════════════════════════════ */
     .update-row.update-row--exp {
@@ -1626,7 +1643,6 @@
     <div class="meta-strip" role="note" aria-label="Identificación del boletín">
       <div class="meta-strip-left">
         <img src="src/logo-unad.png" class="unad-logo" alt="UNAD — Acreditación de Alta Calidad" height="28">
-        <span>CONECTA MDUX</span>
       </div>
       <div class="meta-strip-right">
         <span>Boletín No. 01</span>
@@ -2068,6 +2084,55 @@
           toggleBtn.setAttribute('aria-expanded', String(!open));
           detail.classList.toggle('open', !open);
         });
+      }
+
+      /* Logo scroll parallax — Capa 4 · Mover */
+      if (!mo) {
+        var logo = document.querySelector('.unad-logo');
+        if (logo) {
+          var fl = document.createElement('img');
+          fl.src = logo.src;
+          fl.setAttribute('aria-hidden', 'true');
+          fl.className = 'scroll-logo';
+          document.body.appendChild(fl);
+
+          var r0 = logo.getBoundingClientRect();
+          var ox = r0.left + r0.width / 2;
+          var oy = r0.top + r0.height / 2;
+
+          function lerp(a, b, t) { return a + (b - a) * t; }
+          function easeIO(t) { return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; }
+          function clampV(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+          function tickLogo() {
+            var sy = window.scrollY || document.documentElement.scrollTop;
+            var vw = window.innerWidth;
+            var vh = window.innerHeight;
+
+            /* p1: movimiento (0 → 260px scroll) */
+            var p1 = easeIO(clampV(sy / 260, 0, 1));
+            /* p2: escala 1→0.18 (60 → 340px scroll) */
+            var p2 = easeIO(clampV((sy - 60) / 280, 0, 1));
+            /* p3: fundido final (320 → 460px scroll) */
+            var p3 = clampV((sy - 320) / 140, 0, 1);
+
+            var x  = lerp(ox, vw / 2, p1);
+            var y  = lerp(oy, vh * 0.43, p1);
+            var sc = lerp(1, 0.18, p2);
+            var op = clampV(p1 * 0.78 - p3 * 0.78, 0, 0.78);
+
+            fl.style.left      = x.toFixed(1) + 'px';
+            fl.style.top       = y.toFixed(1) + 'px';
+            fl.style.transform = 'translate(-50%,-50%) scale(' + sc.toFixed(3) + ')';
+            fl.style.opacity   = op.toFixed(3);
+
+            /* desvanece el logo real en la barra conforme sube el scroll */
+            logo.style.opacity = (0.8 * Math.max(0, 1 - sy / 90)).toFixed(2);
+          }
+
+          window.addEventListener('scroll', tickLogo, { passive: true });
+          tickLogo();
+        }
       }
 
       /* M3 Ripple — Capa 4 · Mover */
